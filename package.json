@@ -1,0 +1,26 @@
+{
+  "name": "quiz-portal-frontend",
+  "version": "1.0.0",
+  "description": "The generic quiz portal's frontend",
+  "private": true,
+  "main": "src/index.js",
+  "scripts": {
+    "build": "reactpack -O src/index.js",
+    "start": "reactpack --dev src/index.js",
+    "lint": "eslint src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "preact": "^4.8.0",
+    "preact-router": "^2.0.0",
+    "superagent-prefix": "0.0.2",
+    "superagent-use": "0.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^2.13.1",
+    "eslint-plugin-react": "^5.2.2",
+    "reactpack": "^0.7.2"
+  },
+  "author": "Megh Parikh <meghprkh@gmail.com> (http://meghprkh.github.io)",
+  "license": "ISC"
+}
