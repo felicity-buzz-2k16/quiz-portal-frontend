@@ -8,10 +8,10 @@ import { getPath, route } from './js/helpers'
 import auth from './js/auth'
 
 import NavBar from './js/navbar'
+import Home from './js/home'
 import AuthPage from './js/authPage'
 import Question from './js/question'
 
-var Page1 = props => <h1>Hi Page1</h1>
 const NotFound = props => <h1>Sorry, could not find the page with URL <code>{props.url}</code></h1>
 
 class App extends Component {
@@ -30,7 +30,7 @@ class App extends Component {
         <main style={{padding: '80px 0.5em'}}>
           <div style={{maxWidth: '960px', margin: 'auto'}}>
             <Router>
-              <Page1 path={getPath('/')} />
+              <Home path={getPath('/')} />
               <Question path={getPath('/q/:qno?')} />
 
               <AuthPage path={getPath('/auth')} login={auth.login}/>
