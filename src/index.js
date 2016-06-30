@@ -9,9 +9,9 @@ import auth from './js/auth'
 
 import NavBar from './js/navbar'
 import AuthPage from './js/authPage'
+import Question from './js/question'
 
 var Page1 = props => <h1>Hi Page1</h1>
-var Page2 = props => <h1>Hi Page2 {props.id}</h1>
 const NotFound = props => <h1>Sorry, could not find the page with URL <code>{props.url}</code></h1>
 
 class App extends Component {
@@ -31,12 +31,12 @@ class App extends Component {
           <div style={{maxWidth: '960px', margin: 'auto'}}>
             <Router>
               <Page1 path={getPath('/')} />
+              <Question path={getPath('/q/:qno?')} />
 
               <AuthPage path={getPath('/auth')} login={auth.login}/>
               <AuthPage path={getPath('/auth/register')} register login={auth.login}/>
               <div path={getPath('/logout')} ref={() => auth.logout()}/>
 
-              <Page2 path={getPath('/b/:id?')} />
               <NotFound default />
             </Router>
           </div>
