@@ -11,8 +11,7 @@ import NavBar from './js/navbar'
 import Home from './js/home'
 import AuthPage from './js/authPage'
 import Question from './js/question'
-
-const NotFound = props => <h1>Sorry, could not find the page with URL <code>{props.url}</code></h1>
+import NotFound from './js/notfound'
 
 class App extends Component {
   constructor(props) {
