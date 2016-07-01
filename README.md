@@ -1,5 +1,7 @@
 # Quiz Portal Frontend
 
+[![Build Status](https://travis-ci.org/felicity-buzz-2k16/quiz-portal-frontend.svg?branch=master)](https://travis-ci.org/felicity-buzz-2k16/quiz-portal-frontend)
+
 This is the generic quiz portal's backend that is going to be used in Buzz. It would be used for events like Gordian Knot, Cache In, etc.
 
 This is meant to be used in conjunction with the [backend](https://github.com/felicity-buzz-2k16/quiz-portal-backend)
