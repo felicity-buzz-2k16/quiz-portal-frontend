@@ -11,13 +11,8 @@ import NavBar from './js/navbar'
 import Home from './js/home'
 import AuthPage from './js/authPage'
 import Question from './js/question'
+import NotFound from './js/notfound'
 
-const NotFound = props => <div>
-                            <p>The requested URL was not found on our server.</p>
-                            <h1>404 Error</h1>
-                            <h3>Where&#39;s the page, Lebowski? Where&#39;s the page?</h3>
-                            <p style="text-align: right;" class="author">- The Big Lebowski (1998)</p>
-                          </div>
 class App extends Component {
   constructor(props) {
     super(props)
