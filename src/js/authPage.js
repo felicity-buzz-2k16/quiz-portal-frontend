@@ -1,6 +1,7 @@
 import { h, Component } from 'preact'
 import { route } from 'preact-router'
 
+var username;
 export default class AuthPage extends Component {
   constructor(props) {
     super(props)
@@ -17,7 +18,11 @@ export default class AuthPage extends Component {
              .send({email, password})
              .end((err, res) => {
                if (err) this.setState({error: true});
-               else this.props.login(res.body.token)
+               else {
+                 username = res.body.userName;
+                 console.log(username);
+                 this.props.login(res.body.token)
+               }
              })
       break;
     case 'register':
@@ -25,7 +30,11 @@ export default class AuthPage extends Component {
              .send({name, email, password})
              .end((err, res) => {
                if (err) this.setState({error: true});
-               else this.props.login(res.body.token)
+               else {
+                 username = res.body.userName;
+                 console.log(username);
+                 this.props.login(res.body.token)
+               }
              })
       break;
     }
