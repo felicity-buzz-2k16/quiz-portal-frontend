@@ -20,7 +20,6 @@ export default class AuthPage extends Component {
                if (err) this.setState({error: true});
                else {
                  username = res.body.userName;
-                 console.log(username);
                  this.props.login(res.body.token)
                }
              })
@@ -32,7 +31,6 @@ export default class AuthPage extends Component {
                if (err) this.setState({error: true});
                else {
                  username = res.body.userName;
-                 console.log(username);
                  this.props.login(res.body.token)
                }
              })

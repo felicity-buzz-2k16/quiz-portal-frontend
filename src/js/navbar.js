@@ -1,7 +1,7 @@
 import { h } from 'preact'
 import Link from './link'
 import auth from './auth'
-import username from './authPage'
+import * from './authPage'
 
 var NavBar = props => (
   <nav class='demo'>
@@ -14,7 +14,7 @@ var NavBar = props => (
       <Link href="/q" class="pseudo button">Questions</Link>
       {!auth.token ?
         <Link href='/auth' class='button'>Login/Register</Link> :
-        <Link href='/logout' class='button'>{username} Logout</Link>
+        <Link href='/logout' class='button'>{authPage.username} Logout</Link>
       }
     </div>
   </nav>
