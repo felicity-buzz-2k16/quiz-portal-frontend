@@ -15,12 +15,12 @@ export default class AuthPage extends Component {
     switch (type) {
     case 'login':
       request.post('/auth/login')
-             .send({email, password})
+             .send({name, email, password})
              .end((err, res) => {
                if (err) this.setState({error: true});
                else {
                  username = res.body.name;
-                 this.props.login(res.body.token)
+                 this.props.login(res.body.token, username, email)
                }
              })
       break;

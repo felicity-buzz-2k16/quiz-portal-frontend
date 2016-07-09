@@ -13,7 +13,7 @@ var NavBar = props => (
       <Link href="/q" class="pseudo button">Questions</Link>
       {!auth.token ?
         <Link href='/auth' class='button'>Login/Register</Link> :
-        <Link href='/logout' class='button'>Logout</Link>
+        <Link href='/logout' class='button'>{auth.name} Logout</Link>
       }
     </div>
   </nav>
