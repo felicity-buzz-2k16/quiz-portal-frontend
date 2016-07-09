@@ -17,7 +17,10 @@ export default class AuthPage extends Component {
              .send({email, password})
              .end((err, res) => {
                if (err) this.setState({error: true});
-               else this.props.login(res.body.token)
+               else {
+                 var name = res.body.name;
+                 this.props.login(res.body.token, name, email)
+               }
              })
       break;
     case 'register':
@@ -25,7 +28,9 @@ export default class AuthPage extends Component {
              .send({name, email, password})
              .end((err, res) => {
                if (err) this.setState({error: true});
-               else this.props.login(res.body.token)
+               else {
+                 this.props.login(res.body.token, name, email)
+               }
              })
       break;
     }
