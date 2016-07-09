@@ -3,7 +3,7 @@ var auth = {
   token: localStorage.getItem('authToken'),
   login(authToken, name, email) {
     // Set the authToken and reroute to index page
-    auth.name = name
+    this.name = name
     this.token = authToken
     localStorage.authToken = authToken
     localStorage.name = name

@@ -11,9 +11,9 @@ var NavBar = props => (
     <label htmlFor='bmenub' class='burger pseudo button'>&#8801;</label>
     <div class='menu'>
       <span>
-      <a>{auth.name}</a>
-      <Link href="/q" class="pseudo button">Questions</Link>
+        {auth.name}
       </span>
+      <Link href="/q" class="pseudo button">Questions</Link>
       {!auth.token ?
         <Link href='/auth' class='button'>Login/Register</Link> :
         <Link href='/logout' class='button'>Logout</Link>
