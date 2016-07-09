@@ -19,7 +19,7 @@ export default class AuthPage extends Component {
              .end((err, res) => {
                if (err) this.setState({error: true});
                else {
-                 username = res.body.userName;
+                 username = res.body.name;
                  this.props.login(res.body.token)
                }
              })
@@ -30,7 +30,7 @@ export default class AuthPage extends Component {
              .end((err, res) => {
                if (err) this.setState({error: true});
                else {
-                 username = res.body.userName;
+                 username = res.body.name;
                  this.props.login(res.body.token)
                }
              })
