@@ -1,10 +1,11 @@
 var auth = {
-  x: 2,
   token: localStorage.getItem('authToken'),
+  name: localStorage.getItem('name'),
   login(authToken, name, email) {
     // Set the authToken and reroute to index page
     this.name = name
     this.token = authToken
+    this.email = email
     localStorage.authToken = authToken
     localStorage.name = name
     if (typeof this.onLogin == 'function') this.onLogin()
