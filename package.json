@@ -7,7 +7,7 @@
   "scripts": {
     "build": "reactpack -O src/index.js",
     "start": "reactpack --dev src/index.js",
-    "lint": "eslint src/index.js",
+    "lint": "eslint src/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
