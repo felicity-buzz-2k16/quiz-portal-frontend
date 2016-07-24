@@ -1,4 +1,8 @@
-import './css/picnic.min.css'
+// CSS files
+import 'picnic' // CSS framework
+import './css/main.css'
+
+// JS one time include files
 import './js/superagent_setup'
 
 import { h, render, Component } from 'preact'
