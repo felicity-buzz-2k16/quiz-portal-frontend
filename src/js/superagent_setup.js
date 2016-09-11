@@ -3,7 +3,7 @@ import { getPath } from './helpers'
 import auth from './auth'
 
 var prefix;
-if (DEV) prefix = require('superagent-prefix')('http://localhost:3000/api');
+if (DEV) prefix = require('superagent-prefix')(`http://localhost:${BACKEND_PORT}/api`);
 else prefix = require('superagent-prefix')(getPath('/api'));
 
 request.use(prefix)

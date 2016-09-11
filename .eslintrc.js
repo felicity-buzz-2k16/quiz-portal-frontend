@@ -20,6 +20,7 @@ module.exports = {
     "DEV": false,
     "PROD": false,
     "PUBLIC_PATH": false,
+    "BACKEND_PORT": false,
     "request": false,
   },
   "rules": {
