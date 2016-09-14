@@ -61,7 +61,7 @@ export default class Question extends Component {
         </div>
         <div class="full third-600">
           <form onSubmit={this.checkAnswer}>
-            <input onInput={this.linkState('answer')} placeholder='Answer'/>
+            <input value={state.answer} onInput={this.linkState('answer')} placeholder='Answer'/>
             {state.wrongAnswer && <label class='label full error'>Wrong Answer</label>}
             <button type="submit" class="full">Submit</button>
           </form>
