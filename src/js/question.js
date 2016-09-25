@@ -20,11 +20,16 @@ export default class Question extends Component {
     request.post(`/question/check/${state.qno}`)
            .send({answer: state.answer})
            .end((err, res) => {
-             if (err) {/* TODO */}
+             if (err) {
+               if(res.badRequest)
+                 this.setState({error: 'You have reached the end of the contest. Congrats!'})
+               else if(res.forbidden)
+                 this.setState({error: 'You are not allowed to access this question.'})
+             }
              else {
                const { result } = res.body
                if (result) route('/q/')
-               else this.setState({wrongAnswer: true})
+               else this.setState({wrongAnswer: true, error: ''})
              }
            })
   }
@@ -33,14 +38,24 @@ export default class Question extends Component {
     if (qno) {
       request.get(`/question/${qno}`)
              .end((err, res) => {
-               if (err) {/* TODO */}
-               else this.setState({...res.body, answer: '', wrongAnswer: false})
+               if (err) {
+                 if(res.badRequest)
+                   this.setState({error: 'You have reached the end of the contest. Congrats!'})
+                 else if(res.forbidden)
+                   this.setState({error: 'You are not allowed to access this question.'})
+               }
+               else this.setState({...res.body, answer: '', wrongAnswer: false, error: ''})
              })
     } else {
       request.get(`/question/`)
              .end((err, res) => {
-               if (err) {/* TODO */}
-               else this.setState({...res.body, answer: '', wrongAnswer: false})
+               if (err) {
+                 if(res.badRequest)
+                   this.setState({error: 'You have reached the end of the contest. Congrats!'})
+                 else if(res.forbidden)
+                   this.setState({error: 'You are not allowed to access this question.'})
+               }
+               else this.setState({...res.body, answer: '', wrongAnswer: false, error: ''})
              })
     }
   }
@@ -50,18 +65,19 @@ export default class Question extends Component {
         <div class="full two-third-600">
           <span>
             <h1>Question {state.qno} : {state.title}</h1>
-            <article>{state.body}</article>
-            <article class="card">
+            {state.error && <article class="label error" style={{padding: '1em', margin: '0.5em', fontSize: '1em'}}>{state.error}</article>}
+            {!state.error && <article>{state.body}</article>}
+            {!state.error && <article class="card">
               <header>
                 <Link class='button' href={`/q/${state.qno - 1}`}>Previous</Link>
                 <Link class='button' href={`/q/${state.qno + 1}`} style={{float: 'right'}}>Next</Link>
               </header>
-            </article>
+            </article>}
           </span>
         </div>
         <div class="full third-600">
           <form onSubmit={this.checkAnswer}>
-            <input onInput={this.linkState('answer')} placeholder='Answer'/>
+            <input value={state.answer} onInput={this.linkState('answer')} placeholder='Answer'/>
             {state.wrongAnswer && <label class='label full error'>Wrong Answer</label>}
             <button type="submit" class="full">Submit</button>
           </form>
