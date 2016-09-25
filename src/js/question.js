@@ -33,13 +33,20 @@ export default class Question extends Component {
     if (qno) {
       request.get(`/question/${qno}`)
              .end((err, res) => {
-               if (err) {/* TODO */}
+               if (err) {
+                 if(qno == 6)
+                   alert('Congrats! You have reached have finished the quiz!')
+                 else
+                   alert(`URL spoofing won't help`)
+               }
                else this.setState({...res.body, answer: '', wrongAnswer: false})
              })
     } else {
       request.get(`/question/`)
              .end((err, res) => {
-               if (err) {/* TODO */}
+               if (err) {
+                 alert(`You have already answered this question!`)
+               }
                else this.setState({...res.body, answer: '', wrongAnswer: false})
              })
     }
