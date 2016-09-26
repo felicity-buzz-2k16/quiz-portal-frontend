@@ -16,6 +16,7 @@ import Home from './js/home'
 import AuthPage from './js/authPage'
 import Question from './js/question'
 import NotFound from './js/notfound'
+import ScoreBoard from './js/scoreboard'
 
 class App extends Component {
   constructor(props) {
@@ -39,6 +40,8 @@ class App extends Component {
               <AuthPage path={getPath('/auth')} login={auth.login}/>
               <AuthPage path={getPath('/auth/register')} register login={auth.login}/>
               <div path={getPath('/logout')} ref={() => auth.logout()}/>
+
+              <ScoreBoard path={getPath('/scoreboard')} />
 
               <NotFound default />
             </Router>
