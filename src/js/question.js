@@ -1,6 +1,7 @@
 import { h, Component } from 'preact'
 import { route } from './helpers'
 import Link from './link'
+import marked from 'marked';
 
 export default class Question extends Component {
   constructor(props) {
@@ -60,13 +61,14 @@ export default class Question extends Component {
     }
   }
   render(props, state) {
+    const { body='' } = state;
     return (
       <div class="flex one three-600">
         <div class="full two-third-600">
           <span>
             <h1>Question {state.qno} : {state.title}</h1>
             {state.error && <article class="label error" style={{padding: '1em', margin: '0.5em', fontSize: '1em'}}>{state.error}</article>}
-            {!state.error && <article>{state.body}</article>}
+            {!state.error && <article dangerouslySetInnerHTML={{__html: marked(body)}}></article>}
             {!state.error && <article class="card">
               <header>
                 <Link class='button' href={`/q/${state.qno - 1}`}>Previous</Link>
