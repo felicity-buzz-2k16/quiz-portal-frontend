@@ -40,6 +40,7 @@ module.exports = {
       "error",
       { "argsIgnorePattern": "props" }
     ],
+    "react/no-danger": 0,
     "react/no-unknown-property": [
       "error",
       { ignore: ["class"] }
