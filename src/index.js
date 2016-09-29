@@ -9,11 +9,9 @@ import { h, render, Component } from 'preact'
 import Router from 'preact-router';
 
 import { getPath, route } from './js/helpers'
-import auth from './js/auth'
 
 import NavBar from './js/navbar'
 import Home from './js/home'
-import AuthPage from './js/authPage'
 import Question from './js/question'
 import NotFound from './js/notfound'
 import ScoreBoard from './js/scoreboard'
@@ -22,10 +20,10 @@ class App extends Component {
   constructor(props) {
     super(props)
 
-    this.state = {authToken: auth.token}
+    this.state = {email: auth.email}
 
-    auth.onLogin = () => this.setState({authToken: auth.token}, () => route('/'))
-    auth.onLogout = () => this.setState({authToken: auth.token}, () => route('/'))
+    auth.onLogin = () => this.setState({email: auth.email}, () => route('/'))
+    auth.onLogout = () => this.setState({email: auth.email}, () => route('/'))
   }
   render () {
     return (
@@ -37,8 +35,7 @@ class App extends Component {
               <Home path={getPath('/')} />
               <Question path={getPath('/q/:qno?')} />
 
-              <AuthPage path={getPath('/auth')} login={auth.login}/>
-              <AuthPage path={getPath('/auth/register')} register login={auth.login}/>
+              <div path={getPath('/login')} ref={() => auth.login()}/>
               <div path={getPath('/logout')} ref={() => auth.logout()}/>
 
               <ScoreBoard path={getPath('/scoreboard')} />

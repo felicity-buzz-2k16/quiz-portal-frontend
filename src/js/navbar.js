@@ -1,6 +1,5 @@
 import { h } from 'preact'
 import Link from './link'
-import auth from './auth'
 
 var NavBar = props => (
   <nav class='demo'>
@@ -15,8 +14,8 @@ var NavBar = props => (
       </span>
       <Link href="/q" class="pseudo button">Questions</Link>
       <Link href="/scoreboard" class="pseudo button">Scoreboard</Link>
-      {!auth.token ?
-        <Link href='/auth' class='button'>Login/Register</Link> :
+      {!auth.email ?
+        <Link href='/login' class='button'>Login/Register</Link> :
         <Link href='/logout' class='button'>Logout</Link>
       }
     </div>

@@ -22,6 +22,7 @@ module.exports = {
     "PUBLIC_PATH": false,
     "BACKEND_PORT": false,
     "request": false,
+    "auth": false,
   },
   "rules": {
     "indent": [
